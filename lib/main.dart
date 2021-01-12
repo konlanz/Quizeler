@@ -37,6 +37,7 @@ class _QuizLerState extends State<QuizLer> {
     'Aproximately one quarter of human bones are in the feet',
     'A slug\'s blood is green'
   ];
+  List<bool> answers = [false, true, true];
   int questionNumber = 0;
   @override
   Widget build(BuildContext context) {
@@ -74,6 +75,12 @@ class _QuizLerState extends State<QuizLer> {
                 ),
               ),
               onPressed: () {
+                bool corectAnswer = answers[questionNumber];
+                if (corectAnswer == true) {
+                  print('the answer is true');
+                } else {
+                  print('the answer is false');
+                }
                 setState(() {
                   questionNumber++;
                   scoreKepper.add(
@@ -101,6 +108,12 @@ class _QuizLerState extends State<QuizLer> {
                 ),
               ),
               onPressed: () {
+                bool corectAnswer = answers[questionNumber];
+                if (corectAnswer == true) {
+                  print('the answer is true');
+                } else {
+                  print('the answer is false');
+                }
                 setState(() {
                   questionNumber++;
                   scoreKepper.add(

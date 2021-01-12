@@ -52,7 +52,7 @@ class _QuizLerState extends State<QuizLer> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questions[questionNumber],
+                questionsBank[questionNumber].questionText,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -76,7 +76,7 @@ class _QuizLerState extends State<QuizLer> {
                 ),
               ),
               onPressed: () {
-                bool corectAnswer = answers[questionNumber];
+                bool corectAnswer = questionsBank[questionNumber].questionAnswer;
                 if (corectAnswer == true) {
                   print('the answer is true');
                 } else {
@@ -109,7 +109,7 @@ class _QuizLerState extends State<QuizLer> {
                 ),
               ),
               onPressed: () {
-                bool corectAnswer = answers[questionNumber];
+                bool corectAnswer = questionsBank[questionNumber].questionAnswer;
                 if (corectAnswer == true) {
                   print('the answer is true');
                 } else {

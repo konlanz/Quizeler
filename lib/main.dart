@@ -13,10 +13,11 @@ class QuizPage extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.grey.shade900,
         body: SafeArea(
-            child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          child: QuizLer(),
-        )),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: QuizLer(),
+          ),
+        ),
       ),
     );
   }
@@ -30,6 +31,7 @@ class QuizLer extends StatefulWidget {
 }
 
 class _QuizLerState extends State<QuizLer> {
+  List<Icon> scoreKepper = [];
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -41,7 +43,8 @@ class _QuizLerState extends State<QuizLer> {
           child: Padding(
             padding: EdgeInsets.all(10.0),
             child: Center(
-              child: Text('this is where the questions will go',
+              child: Text(
+                'this is where the questions will go',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -65,12 +68,19 @@ class _QuizLerState extends State<QuizLer> {
                 ),
               ),
               onPressed: () {
-                //The user picked true.
+                setState(() {
+                  scoreKepper.add(
+                    Icon(
+                      Icons.check,
+                      color: Colors.green,
+                    ),
+                  );
+                });
               },
             ),
           ),
         ),
-         Expanded(
+        Expanded(
           child: Padding(
             padding: EdgeInsets.all(15.0),
             child: FlatButton(
@@ -84,22 +94,20 @@ class _QuizLerState extends State<QuizLer> {
                 ),
               ),
               onPressed: () {
-                //The user picked true.
+                setState(() {
+                  scoreKepper.add(
+                    Icon(
+                      Icons.close,
+                      color: Colors.red,
+                    ),
+                  );
+                });
               },
             ),
           ),
         ),
         Row(
-          children: [
-            Icon(
-              Icons.check,
-              color: Colors.green
-            ),
-                        Icon(
-              Icons.close,
-              color: Colors.red
-            ),
-          ],
+          children: scoreKepper,
         )
       ],
     );

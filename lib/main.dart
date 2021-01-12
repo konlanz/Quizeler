@@ -32,6 +32,12 @@ class QuizLer extends StatefulWidget {
 
 class _QuizLerState extends State<QuizLer> {
   List<Icon> scoreKepper = [];
+  List<String> questions = [
+    'You can lead a Cow down stairs but not upstairs.',
+    'Aproximately one quarter of human bones are in the feet',
+    'A slug\'s blood is green'
+  ];
+  int questionNumber = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -44,7 +50,7 @@ class _QuizLerState extends State<QuizLer> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                'this is where the questions will go',
+                questions[questionNumber],
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -69,6 +75,7 @@ class _QuizLerState extends State<QuizLer> {
               ),
               onPressed: () {
                 setState(() {
+                  questionNumber++;
                   scoreKepper.add(
                     Icon(
                       Icons.check,
@@ -95,6 +102,7 @@ class _QuizLerState extends State<QuizLer> {
               ),
               onPressed: () {
                 setState(() {
+                  questionNumber++;
                   scoreKepper.add(
                     Icon(
                       Icons.close,

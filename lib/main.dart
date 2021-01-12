@@ -89,6 +89,18 @@ class _QuizLerState extends State<QuizLer> {
             ),
           ),
         ),
+        Row(
+          children: [
+            Icon(
+              Icons.check,
+              color: Colors.green
+            ),
+                        Icon(
+              Icons.close,
+              color: Colors.red
+            ),
+          ],
+        )
       ],
     );
   }

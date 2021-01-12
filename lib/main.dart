@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Questions.dart';
 
 void main() {
   runApp(QuizPage());
@@ -32,12 +33,12 @@ class QuizLer extends StatefulWidget {
 
 class _QuizLerState extends State<QuizLer> {
   List<Icon> scoreKepper = [];
-  List<String> questions = [
-    'You can lead a Cow down stairs but not upstairs.',
-    'Aproximately one quarter of human bones are in the feet',
-    'A slug\'s blood is green'
+  List<Question> questionsBank = [
+    Question(q: 'You can lead a Cow down stairs but not upstairs.', a: false),
+    Question(q: 'Aproximately one quarter of human bones are in the feet.', a: true),
+    Question(q: 'A slug\'s blood is green.', a: true)
   ];
-  List<bool> answers = [false, true, true];
+  
   int questionNumber = 0;
   @override
   Widget build(BuildContext context) {

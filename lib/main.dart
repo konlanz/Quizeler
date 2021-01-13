@@ -74,7 +74,7 @@ class _QuizLerState extends State<QuizLer> {
               ),
               onPressed: () {
                 bool corectAnswer =
-                    quizBraiN.questionsBank[questionNumber].questionAnswer;
+                quizBraiN.questionsBank[questionNumber].questionAnswer;
                 if (corectAnswer == true) {
                   print('the answer is true');
                 } else {
@@ -82,12 +82,6 @@ class _QuizLerState extends State<QuizLer> {
                 }
                 setState(() {
                   questionNumber++;
-                  scoreKepper.add(
-                    Icon(
-                      Icons.check,
-                      color: Colors.green,
-                    ),
-                  );
                 });
               },
             ),
@@ -116,12 +110,12 @@ class _QuizLerState extends State<QuizLer> {
                 }
                 setState(() {
                   questionNumber++;
-                  scoreKepper.add(
+                  /*scoreKepper.add(
                     Icon(
                       Icons.close,
                       color: Colors.red,
                     ),
-                  );
+                  );*/
                 });
               },
             ),

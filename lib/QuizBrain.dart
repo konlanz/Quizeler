@@ -11,9 +11,9 @@ class QuizBrain {
   ];
 
   void nextQuetions() {
-    if (_questionNumber <= _questionsBank.length - 1) {
+    if (_questionNumber < _questionsBank.length - 1) {
       _questionNumber++;
-    }else{
+    } else {
       _questionNumber = 0;
     }
   }

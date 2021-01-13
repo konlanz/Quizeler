@@ -35,6 +35,27 @@ class QuizLer extends StatefulWidget {
 
 class _QuizLerState extends State<QuizLer> {
   List<Icon> scoreKepper = [];
+  void checkAnswer(bool userPickedAnswwer) {
+    bool corectAnswer = quizBraiN.getAnswerstoo();
+    if (corectAnswer == userPickedAnswwer) {
+      scoreKepper.add(
+        Icon(
+          Icons.check,
+          color: Colors.green,
+        ),
+      );
+    } else {
+      scoreKepper.add(
+        Icon(
+          Icons.close,
+          color: Colors.red,
+        ),
+      );
+    }
+    setState(() {
+      quizBraiN.nextQuetions();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,15 +93,7 @@ class _QuizLerState extends State<QuizLer> {
                 ),
               ),
               onPressed: () {
-                bool corectAnswer = quizBraiN.getAnswerstoo();
-                if (corectAnswer == true) {
-                  print('the answer is true');
-                } else {
-                  print('the answer is false');
-                }
-                setState(() {
-                  quizBraiN.nextQuetions();
-                });
+                checkAnswer(true);
               },
             ),
           ),
@@ -99,21 +112,7 @@ class _QuizLerState extends State<QuizLer> {
                 ),
               ),
               onPressed: () {
-                bool corectAnswer = quizBraiN.getAnswerstoo();
-                if (corectAnswer == true) {
-                  print('the answer is true');
-                } else {
-                  print('the answer is false');
-                }
-                setState(() {
-                  quizBraiN.nextQuetions();
-                  /*scoreKepper.add(
-                    Icon(
-                      Icons.close,
-                      color: Colors.red,
-                    ),
-                  );*/
-                });
+                checkAnswer(false);
               },
             ),
           ),

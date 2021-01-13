@@ -13,9 +13,18 @@ class QuizBrain {
   void nextQuetions() {
     if (_questionNumber < _questionsBank.length - 1) {
       _questionNumber++;
-    } else {
-      _questionNumber = 0;
     }
+  }
+
+  bool isFinished() {
+    if (_questionNumber >= _questionsBank.length - 1) {
+      return true;
+    } else
+      return false;
+  }
+
+  void reset() {
+    _questionNumber = 0;
   }
 
   String getQuetin() {

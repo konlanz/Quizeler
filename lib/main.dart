@@ -36,7 +36,6 @@ class QuizLer extends StatefulWidget {
 class _QuizLerState extends State<QuizLer> {
   List<Icon> scoreKepper = [];
 
-  int questionNumber = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -49,7 +48,7 @@ class _QuizLerState extends State<QuizLer> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                quizBraiN.questionsBank[questionNumber].questionText,
+                quizBraiN.getQuetin(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -73,15 +72,14 @@ class _QuizLerState extends State<QuizLer> {
                 ),
               ),
               onPressed: () {
-                bool corectAnswer =
-                quizBraiN.questionsBank[questionNumber].questionAnswer;
+                bool corectAnswer = quizBraiN.getAnswerstoo();
                 if (corectAnswer == true) {
                   print('the answer is true');
                 } else {
                   print('the answer is false');
                 }
                 setState(() {
-                  questionNumber++;
+                  quizBraiN.nextQuetions();
                 });
               },
             ),
@@ -101,15 +99,14 @@ class _QuizLerState extends State<QuizLer> {
                 ),
               ),
               onPressed: () {
-                bool corectAnswer =
-                    quizBraiN.questionsBank[questionNumber].questionAnswer;
+                bool corectAnswer = quizBraiN.getAnswerstoo();
                 if (corectAnswer == true) {
                   print('the answer is true');
                 } else {
                   print('the answer is false');
                 }
                 setState(() {
-                  questionNumber++;
+                  quizBraiN.nextQuetions();
                   /*scoreKepper.add(
                     Icon(
                       Icons.close,
